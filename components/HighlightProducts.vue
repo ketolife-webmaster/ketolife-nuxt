@@ -40,7 +40,7 @@
                 :key="index"
                 class="p-4"
               >
-                <UtilsProductCard :product="product" />
+                <ProductCard :product="product" />
               </slide>
             </carousel>
           </client-only>

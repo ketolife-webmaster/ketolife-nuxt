@@ -22,7 +22,7 @@
             v-else
             class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 xl:grid-cols-4"
           >
-            <UtilsProductCard
+            <ProductCard
               v-for="(product, index) in products"
               :key="index"
               :product="product"
@@ -53,10 +53,10 @@ export default {
           _eq: 'published',
         },
       },
-      sort: this.$route.query.sort || 'order',
+      sort: this.$route.query.sort || 'sort',
     })
 
-    this.products = products.data
+    this.products = products?.data
   },
   watch: {
     '$route.query': '$fetch',

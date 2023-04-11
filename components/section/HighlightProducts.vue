@@ -40,7 +40,7 @@
                 :key="index"
                 class="p-4"
               >
-                <UtilsProductCard :product="product" />
+                <ProductCard :product="product" />
               </slide>
             </carousel>
           </client-only>
@@ -74,21 +74,21 @@ export default {
     }
   },
 
-  async fetch() {
-    const products = await this.$calls.items({
-      collection: 'products',
-      filter: {
-        status: {
-          _eq: 'published',
-        },
-        featured: {
-          _eq: true,
-        },
-      },
-    })
+  // async fetch() {
+  //   const products = await this.$calls.items({
+  //     collection: 'products',
+  //     filter: {
+  //       status: {
+  //         _eq: 'published',
+  //       },
+  //       featured: {
+  //         _eq: true,
+  //       },
+  //     },
+  //   })
 
-    this.products = products.data
-  },
+  //   this.products = products.data
+  // },
 }
 </script>
 

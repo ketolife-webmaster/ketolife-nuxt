@@ -214,19 +214,19 @@ export default {
     }
   },
 
-  async fetch() {
-    const supplies = await this.$calls.items({
-      collection: 'supplies',
-      filter: {
-        id: {
-          _in: this.ingredientes.map((x) => x.id),
-        },
-      },
-    })
+  // async fetch() {
+  //   const supplies = await this.$calls.items({
+  //     collection: 'supplies',
+  //     filter: {
+  //       id: {
+  //         _in: this.ingredientes.map((x) => x.id),
+  //       },
+  //     },
+  //   })
 
-    this.supplies = supplies.data
-    // TODO: on 404, redirects
-  },
+  //   this.supplies = supplies.data
+  //   // TODO: on 404, redirects
+  // },
 
   beforeMount() {
     this.ingredientes.forEach((elem, index) => {

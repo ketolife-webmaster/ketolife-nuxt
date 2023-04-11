@@ -1,14 +1,14 @@
 export default {
   publicRuntimeConfig: {
     // API
-    apiURL: process.env.API_URL,
-    apiToken: process.env.API_TOKEN,
+    apiURL: process.env.DIRECTUS_URL,
+    apiToken: process.env.DIRECTUS_ACCESS_TOKEN,
   },
 
   privateRuntimeConfig: {
     // API
-    apiURL: process.env.API_URL,
-    apiToken: process.env.API_TOKEN,
+    apiURL: process.env.DIRECTUS_URL,
+    apiToken: process.env.DIRECTUS_ACCESS_TOKEN,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

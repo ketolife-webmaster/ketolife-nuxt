@@ -29,11 +29,13 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit({ commit }) {
-    const configurations = await this.$calls.items({
-      collection: 'configurations',
-    })
+    // const configurations = await this.$calls.items({
+    //   collection: 'configurations',
+    // })
 
-    commit('SET_WEBSITE_CONFIGURATIONS', configurations?.data)
+    // console.log(configurations, 'configurations')
+
+    // commit('SET_WEBSITE_CONFIGURATIONS', configurations?.data)
   },
 
   toogleUnderconstruction ({ commit }, payload) {
