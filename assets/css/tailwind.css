@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    /* @apply font-poppins; */
+  }
+
+  ::selection {
+    @apply bg-secondary text-primary;
+  }
+
+  p {
+    @apply font-normal !leading-8 text-paragraph font-montserrat;
+  }
+
+  input,
+  textarea {
+    @apply hover:border-secondary;
+  }
+
+  .divide {
+    @apply relative block h-0.5 mx-auto my-6 rounded w-60;
+
+    &.primary {
+      @apply bg-primary;
+
+      &::after {
+        @apply bg-white border-primary;
+      }
+    }
+
+    &.secondary {
+      @apply bg-secondary;
+
+      &::after {
+        @apply bg-white border-secondary;
+      }
+    }
+
+    &::after {
+      content: '';
+      @apply absolute w-2 h-2 border-[0.125rem] transform rounded-full -translate-y-1/2 top-1/2;
+    }
+
+    &.center {
+      &::after {
+        @apply -translate-x-1/2 left-1/2;
+      }
+    }
+
+    &.left {
+      &::after {
+        @apply left-0;
+      }
+    }
+
+    &.right {
+      &::after {
+        @apply right-0;
+      }
+    }
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply flex items-center justify-center w-full px-8 py-2 transition-colors duration-300 ease-in-out text-base font-medium text-white border border-transparent rounded-md hover:!bg-white md:py-3 md:px-10 md:text-lg;
+
+    &.black {
+      @apply bg-black hover:border-black hover:text-black;
+    }
+
+    &.white {
+      @apply bg-transparent hover:!bg-primary border-primary !text-primary hover:!text-white;
+    }
+
+    &.primary {
+      @apply hover:!bg-transparent bg-primary hover:border-primary hover:!bg-white hover:text-primary;
+    }
+
+    &.secondary {
+      @apply bg-secondary hover:border-secondary hover:text-secondary;
+    }
+
+    &.tertiary {
+      @apply bg-tertiary hover:border-tertiary hover:text-tertiary;
+    }
+  }
+}
+
+@layer utilities {
+  input[type='number'].remove-spinner::-webkit-inner-spin-button,
+  input[type='number'].remove-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
