@@ -7,9 +7,13 @@
     tabindex="-1"
   >
     <h2 class="sr-only">Shopping Cart</h2>
+    <pre>{{ cart }}</pre>
     <form class="max-w-2xl px-4 mx-auto">
       <ul role="list" class="divide-y divide-gray-200">
-        <li v-if="cart.length === 0" class="flex items-center justify-center py-6">
+        <li
+          v-if="cart.length === 0"
+          class="flex items-center justify-center py-6"
+        >
           <div class="text-center">
             <svg
               class="w-12 h-12 mx-auto text-gray-400"
@@ -19,16 +23,17 @@
               aria-hidden="true"
             >
               <path
-                vector-effect="non-scaling-stroke"
                 stroke-linecap="round"
-                stroke-linejoin="round"
                 stroke-width="2"
-                d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                stroke-linejoin="round"
+                d="M12 6v12m6-6H6"
               />
             </svg>
-            <h3 class="mt-2 text-sm font-medium text-gray-900">No products</h3>
+            <h3 class="mt-2 text-sm font-medium text-gray-900">
+              No hay productos
+            </h3>
             <p class="mt-1 text-sm text-gray-500">
-              Get started by adding products.
+              Empiece añadiendo productos
             </p>
           </div>
         </li>
@@ -53,7 +58,7 @@
       </ul>
 
       <div v-if="cart.length === 0">
-        <nuxt-link to="/shop" class="btn primary">Shop</nuxt-link>
+        <nuxt-link to="/tienda" class="btn primary">Tienda</nuxt-link>
       </div>
       <div v-else>
         <nuxt-link to="/checkout" class="btn primary">Checkout</nuxt-link>
@@ -62,7 +67,7 @@
           <nuxt-link
             to="/cart"
             class="text-sm font-medium text-primary hover:text-tertiary"
-            >View Shopping Bag</nuxt-link
+            >Ver bolsa de la compra</nuxt-link
           >
         </p>
       </div>
@@ -71,15 +76,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'CartPopoverCompoenent',
+  name: "CartPopoverCompoenent",
 
   computed: {
     ...mapGetters({
-      cart: 'cart/getCart',
+      cart: "cart/getCart",
     }),
   },
-}
+};
 </script>

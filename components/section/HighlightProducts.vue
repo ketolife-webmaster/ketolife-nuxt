@@ -7,10 +7,10 @@
           class="text-4xl font-bold tracking-tight text-left"
         >
           <span class="block text-4xl text-primary font-amatic lg:text-6xl"
-            >The best of us</span
+            >Lo mejor de nosotros</span
           >
           <span class="block tracking-widest text-black uppercase sm:text-6xl"
-            >Highlights</span
+            >Destacados</span
           >
         </h2>
 
@@ -74,21 +74,21 @@ export default {
     }
   },
 
-  // async fetch() {
-  //   const products = await this.$calls.items({
-  //     collection: 'products',
-  //     filter: {
-  //       status: {
-  //         _eq: 'published',
-  //       },
-  //       featured: {
-  //         _eq: true,
-  //       },
-  //     },
-  //   })
+  async fetch() {
+    const products = await this.$calls.items({
+      collection: 'products',
+      filter: {
+        status: {
+          _eq: 'published',
+        },
+        featured: {
+          _eq: true,
+        },
+      },
+    })
 
-  //   this.products = products.data
-  // },
+    this.products = products.data
+  },
 }
 </script>
 

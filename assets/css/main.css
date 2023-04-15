@@ -80,7 +80,7 @@
     }
 
     &.primary {
-      @apply hover:!bg-transparent bg-primary hover:border-primary hover:!bg-white hover:text-primary;
+      @apply hover:!bg-transparent bg-primary hover:border-primary hover:text-primary;
     }
 
     &.secondary {

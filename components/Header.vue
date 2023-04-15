@@ -25,7 +25,7 @@
             aria-expanded="false"
             @click.prevent="mobileStatus = !mobileStatus"
           >
-            <span class="sr-only">Open main menu</span>
+            <span class="sr-only">Abrir menu principal</span>
             <svg
               class="block w-6 h-6"
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@
           </div>
 
           <!-- Search -->
-          <div class="relative flex-shrink-0 ml-12">
+          <div class="relative flex-shrink-0 hidden ml-12">
             <div>
               <button
                 type="button"
@@ -119,7 +119,7 @@
                       id="search"
                       name="search"
                       class="block w-full px-3 py-2 pr-5 leading-5 bg-white rounded-md placeholder-tertiary focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary sm:text-base"
-                      placeholder="Search"
+                      placeholder="Buscar"
                       type="search"
                     />
 
@@ -150,14 +150,14 @@
           </div>
 
           <!-- Cart -->
-          <div class="relative flex-shrink-0 ml-4">
+          <div class="relative flex-shrink-0 ml-8">
             <div>
               <button
                 type="button"
                 class="flex-shrink-0 p-1 text-gray-400 rounded-full hover:text-tertiary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-0 focus:text-primary"
                 @click.prevent="cartStatus = !cartStatus"
               >
-                <span class="sr-only">Shopping cart</span>
+                <span class="sr-only">Carrito de compra</span>
                 <!-- Heroicon name: outline/bell -->
                 <svg
                   class="w-6 h-6"
@@ -184,7 +184,7 @@
                 leave-from-class="transform scale-100 opacity-100"
                 leave-to-class="transform scale-95 opacity-0"
               >
-                <UtilsCartPopover />
+                <CartPopover />
               </transition>
             </div>
           </div>
@@ -225,12 +225,12 @@ export default {
 
       menu: [
         {
-          text: 'Home',
+          text: 'Inicio',
           slug: '/',
         },
         {
-          text: 'Shop',
-          slug: '/shop',
+          text: 'Tienda',
+          slug: '/tienda',
         },
       ],
     }

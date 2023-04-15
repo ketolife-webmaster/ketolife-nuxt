@@ -139,7 +139,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.BASE_URL || 'https://ketolife-dev.vercel.app',
+    baseURL: process.env.BASE_URL || 'https://ketolife.vercel.app',
     headers: {
       common: {
         Accept: "application/json",

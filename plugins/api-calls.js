@@ -17,7 +17,8 @@ export default ({ $config, store, error }, inject) => {
           filter ? `&filter=${filter}` : ''
         }&limit=${limit}${page ? `&page=${page}` : ''}${
           meta ? `&meta=${meta}` : ''
-        }${sort ? `&sort=${sort}` : ''}`,
+        }${sort ? `&sort=${sort}` : ''}
+        &deep[locations][_filter][locations_code][_eq]=PE`,
         headers: {
           Authorization: `Bearer ${$config.apiToken}`,
         },

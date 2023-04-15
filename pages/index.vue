@@ -1,9 +1,7 @@
 <template>
   <div>
     <section id="herobanner" class="relative">
-      <div
-        class="absolute inset-x-0 bottom-0 h-screen bg-gray-100"
-      ></div>
+      <div class="absolute inset-x-0 bottom-0 h-screen bg-gray-100"></div>
 
       <div class="relative sm:overflow-hidden">
         <div class="absolute inset-0">
@@ -24,11 +22,11 @@
               class="text-4xl font-bold tracking-tight text-center"
             >
               <span class="block text-4xl text-primary font-amatic lg:text-6xl"
-                >Sweet bites for you</span
+                >Dulces bocados para ti</span
               >
               <span
                 class="block tracking-widest text-black uppercase sm:text-6xl"
-                >teasteful</span
+                >sabrosos</span
               >
             </h2>
 
@@ -38,11 +36,11 @@
             ></span>
             <p
               v-animate-on-scroll="{ type: 'fadeInUp' }"
-              class="max-w-md mx-auto mt-6 text-xl italic text-center sm:max-w-2xl"
+              class="max-w-md mx-auto mt-6 text-lg italic text-center sm:max-w-2xl"
             >
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat aliqua.
+              En la cocina de ketolife estamos comprometidos con platos
+              saludables que te permitan dejar de sacrificar el sabor por salud,
+              encontrarás esa mezcla en toda nuestra panadería, postres y mas.
             </p>
             <div
               v-animate-on-scroll="{ type: 'fadeInUp' }"
@@ -51,8 +49,15 @@
               <div
                 class="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-6 sm:space-y-0"
               >
-                <nuxt-link to="/shop" class="btn primary">Shop now</nuxt-link>
-                <a href="https://www.instagram.com/ketolife_energia_y_salud/" target="_blank" class="btn white">About us</a>
+                <nuxt-link to="/shop" class="btn primary"
+                  >Comprar ahora</nuxt-link
+                >
+                <a
+                  href="https://www.instagram.com/ketolife_energia_y_salud/"
+                  target="_blank"
+                  class="btn white"
+                  >Sobre nosotros</a
+                >
               </div>
             </div>
           </div>
@@ -80,10 +85,10 @@
             class="text-4xl font-bold tracking-tight text-center"
           >
             <span class="block text-4xl text-primary font-amatic lg:text-6xl"
-              >we know that</span
+              >sabemos que</span
             >
             <span class="block tracking-widest text-black uppercase sm:text-6xl"
-              >eating is art</span
+              >la comida es arte</span
             >
           </h2>
 
@@ -97,11 +102,8 @@
             class="mx-auto text-xl italic text-center lg:max-w-3xl"
           >
             <p>
-              Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro
-              affert graeco. Vim nu epicuri definiebas et, eam in facer errem
-              nominavi. Per iuvaret ornatus gloriatur ne, ne sea principes
-              assentior. Facer intellegat voluptaria vis no, te pri natum ludus
-              inst.
+              Transforma tu día a día con una alimentación con objetivos e
+              inteligente, alcanza tus metas de manera saludable y deliciosa.
             </p>
           </div>
           <div
@@ -138,7 +140,7 @@
               <h2 class="text-4xl font-bold tracking-tight text-left">
                 <span
                   class="block text-4xl text-primary font-amatic lg:text-6xl"
-                  >A true delight</span
+                  >Una experiencia deliciosa</span
                 >
                 <span
                   class="block tracking-widest text-black uppercase sm:text-6xl"
@@ -156,11 +158,14 @@
                 class="mx-auto text-xl italic lg:max-w-3xl"
               >
                 <p>
-                  Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius
-                  choro affert graeco. Vim nu epicuri definiebas et, eam in
-                  facer errem nominavi. Per iuvaret ornatus gloriatur ne, ne sea
-                  principes assentior. Facer intellegat voluptaria vis no, te
-                  pri natum ludus inst.
+                  Esta cheesecake se caracteriza por su suave y cremoso sabor a
+                  queso, combinado con una base de galleta keto. Además, se
+                  elabora con ingredientes saludables como huevos, queso crema y
+                  edulcorantes naturales, lo que la hace apta para aquellos que
+                  siguen una dieta baja en carbohidratos y/o sin gluten. Y lo
+                  mejor de todo es que siempre está disponible, por lo que
+                  puedes disfrutar de un postre saludable y delicioso en
+                  cualquier momento.
                 </p>
               </div>
 
@@ -171,8 +176,8 @@
                 <div
                   class="space-y-4 sm:inline-grid sm:grid-cols-2 sm:gap-6 sm:space-y-0"
                 >
-                  <a href="#" class="btn primary">Shop now</a>
-                  <a href="#" class="btn white">View product</a>
+                  <a href="#" class="btn primary">Comprar ahora</a>
+                  <a href="#" class="btn white">Ver producto</a>
                 </div>
               </div>
             </div>
@@ -189,10 +194,10 @@
             class="text-3xl font-bold tracking-tight text-center"
           >
             <span class="block text-4xl text-primary font-amatic lg:text-6xl"
-              >because we care</span
+              >porque nos importa</span
             >
             <span class="block tracking-widest text-black uppercase sm:text-6xl"
-              >especifications</span
+              >especificaciones</span
             >
           </h2>
 
@@ -265,12 +270,12 @@
                 </div>
                 <div class="lg:col-span-7">
                   <div
-                    class="overflow-hidden bg-gray-100 shadow-xl rounded-3xl aspect-w-2 aspect-h-1 sm:aspect-w-4 sm:aspect-h-2"
+                    class="overflow-hidden bg-gray-100 shadow-xl rounded-3xl max-h-[500px] aspect-w-1 aspect-h-1"
                   >
                     <img
                       :src="`/features/${especifications?.[currentEspecification]?.image}`"
                       :alt="especifications?.[currentEspecification]?.btnText"
-                      class="object-cover object-center"
+                      class="object-cover object-center w-full h-full"
                     />
                   </div>
                 </div>
@@ -319,7 +324,7 @@
               <h2
                 class="text-5xl font-bold tracking-tight text-white sm:text-6xl font-amatic"
               >
-                Get notified when we&rsquo;re launching.
+                Reciba una notificación de nuestro lanzamiento
               </h2>
               <p class="max-w-2xl mx-auto mt-6 text-lg text-paragraph">
                 Sagittis scelerisque nulla cursus in enim consectetur quam.
@@ -328,16 +333,18 @@
             </div>
             <form action="#" class="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
               <div class="flex-1 min-w-0">
-                <label for="cta-email" class="sr-only">Email address</label>
+                <label for="cta-email" class="sr-only"
+                  >Correo electrónico</label
+                >
                 <input
                   id="cta-email"
                   type="email"
-                  class="w-full py-4 bg-white border-gray-300 rounded-md shadow-sm lock placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-sm"
-                  placeholder="Enter your email"
+                  class="w-full px-3 py-4 bg-white border-gray-300 rounded-md shadow-sm lock placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-sm"
+                  placeholder="Introduzca su correo electrónico"
                 />
               </div>
               <div class="mt-4 sm:mt-0 sm:ml-3">
-                <button type="submit" class="btn primary">Notify me</button>
+                <button type="submit" class="btn primary">Notificarme</button>
               </div>
             </form>
           </div>
@@ -361,11 +368,11 @@
               class="text-4xl font-bold tracking-tight text-center"
             >
               <span class="block text-4xl text-primary font-amatic lg:text-6xl"
-                >you said about us</span
+                >que dijiste de nosotros</span
               >
               <span
                 class="block tracking-widest text-black uppercase sm:text-6xl"
-                >Testimonials</span
+                >Testimonios</span
               >
             </h2>
 
@@ -458,8 +465,8 @@
                             type="text"
                             name="first-name"
                             autocomplete="given-name"
-                            placeholder="Firstname"
-                            class="block w-full py-4 bg-white border-gray-300 rounded-md shadow-sm placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-sm"
+                            placeholder="Nombre"
+                            class="block w-full px-3 py-4 bg-white border-gray-300 rounded-md shadow-sm outline-none focus:ring-2 ring-primary placeholder-tertiary text-paragraph focus:border-primary sm:text-sm"
                           />
                         </div>
                       </div>
@@ -471,8 +478,8 @@
                             type="text"
                             name="last-name"
                             autocomplete="family-name"
-                            placeholder="Lastname"
-                            class="block w-full py-4 bg-white border-gray-300 rounded-md shadow-sm placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-sm"
+                            placeholder="Apellido"
+                            class="block w-full px-3 py-4 bg-white border-gray-300 rounded-md shadow-sm outline-none focus:ring-2 ring-primary placeholder-tertiary text-paragraph focus:border-primary sm:text-sm"
                           />
                         </div>
                       </div>
@@ -484,8 +491,8 @@
                             name="email"
                             type="email"
                             autocomplete="email"
-                            placeholder="Email"
-                            class="block w-full py-4 bg-white border-gray-300 rounded-md shadow-sm placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-sm"
+                            placeholder="Correo electrónico"
+                            class="block w-full px-3 py-4 bg-white border-gray-300 rounded-md shadow-sm outline-none focus:ring-2 ring-primary placeholder-tertiary text-paragraph focus:border-primary sm:text-sm"
                           />
                         </div>
                       </div>
@@ -497,8 +504,8 @@
                             name="phone"
                             type="tel"
                             autocomplete="phone"
-                            placeholder="Phone"
-                            class="block w-full py-4 bg-white border-gray-300 rounded-md shadow-sm placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-sm"
+                            placeholder="Teléfono"
+                            class="block w-full px-3 py-4 bg-white border-gray-300 rounded-md shadow-sm outline-none focus:ring-2 ring-primary placeholder-tertiary text-paragraph focus:border-primary sm:text-sm"
                           />
                         </div>
                       </div>
@@ -509,8 +516,8 @@
                             id="message"
                             name="message"
                             rows="5"
-                            placeholder="Message"
-                            class="block w-full py-4 bg-white border-gray-300 rounded-md shadow-sm placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-sm"
+                            placeholder="Mensaje"
+                            class="block w-full px-3 py-4 bg-white border-gray-300 rounded-md shadow-sm outline-none focus:ring-2 ring-primary placeholder-tertiary text-paragraph focus:border-primary sm:text-sm"
                           ></textarea>
                         </div>
                       </div>
@@ -527,7 +534,7 @@
                         </div>
 
                         <p class="ml-4 text-paragraph">
-                          or contact us by
+                          o póngase en contacto con nosotros
                           <a
                             href="http://"
                             target="_blank"
@@ -548,7 +555,7 @@
                 <h2 class="text-4xl font-bold tracking-tight text-left">
                   <span
                     class="block text-3xl text-primary font-amatic lg:text-5xl"
-                    >Working time</span
+                    >Horario laboral</span
                   >
                   <!-- <span
                       class="block tracking-widest text-black uppercase sm:text-4xl"
@@ -569,7 +576,7 @@
                                 :class="[
                                   'text-gray-500',
                                   {
-                                    'bg-tertiary !text-primary':
+                                    'bg-gray-100 !text-primary':
                                       index === today - 1,
                                   },
                                 ]"
@@ -586,7 +593,7 @@
                                       { 'bg-[#f0506e]': !checkTime },
                                     ]"
                                   >
-                                    {{ checkTime ? 'Open' : 'Closed' }}
+                                    {{ checkTime ? "Abierto" : "Cerrado" }}
                                   </span>
                                 </td>
                                 <td class="px-3 py-4 text-sm whitespace-nowrap">
@@ -611,7 +618,7 @@
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: "IndexPage",
 
   data() {
     return {
@@ -625,149 +632,148 @@ export default {
       testimonials: [
         {
           quote:
-            'Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi. Per iuvaret ornatus gloriatur ne, ne sea principes assentior. Facer intellegat voluptaria vis no, te pri natum ludus inst. Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi. Per iuvaret ornatus gloriatur ne, ne sea principes assentior. Facer intellegat voluptaria vis no, te pri natum ludus inst.',
-          name: 'Israel Senior',
+            "Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi. Per iuvaret ornatus gloriatur ne, ne sea principes assentior. Facer intellegat voluptaria vis no, te pri natum ludus inst. Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi. Per iuvaret ornatus gloriatur ne, ne sea principes assentior. Facer intellegat voluptaria vis no, te pri natum ludus inst.",
+          name: "Israel Senior",
         },
 
         {
           quote:
-            'Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi. Facer intellegat voluptaria vis no, te pri natum ludus inst.',
-          name: 'Joilen Lopex',
+            "Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi. Facer intellegat voluptaria vis no, te pri natum ludus inst.",
+          name: "Joilen Lopex",
         },
 
         {
           quote:
-            'Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi. Facer intellegat voluptaria vis no, te pri natum ludus inst. Per iuvaret ornatus gloriatur ne.',
-          name: 'Victor Salas',
+            "Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi. Facer intellegat voluptaria vis no, te pri natum ludus inst. Per iuvaret ornatus gloriatur ne.",
+          name: "Victor Salas",
         },
       ],
 
       currentEspecification: 0,
       especifications: [
         {
-          title: 'Healthy life is important',
-          btnText: '100% Keto',
+          title: "La vida sana es importante",
+          btnText: "Keto 100%",
           description:
-            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eligendi voluptatum maiores vel illum nesciunt unde nisi cumque laboriosam est earum sequi itaque minima voluptate a expedita possimus doloremque optio alias quia, inventore rerum. Porro aliquam ullam praesentium, inventore hic commodi. Iure dolorum, quis numquam quasi iste enim fuga tempore.',
-          image: '4f6d6245-4619-4187-9dff-5e0f54c4cc2b.jpg',
+            "Alimentos bajos en carbos y ricos en grasas saludables para dieta cetogenica. Perfectos para mantener objetivos nutricionales.",
+          image: "4f6d6245-4619-4187-9dff-5e0f54c4cc2b.jpg",
         },
         {
-          title: 'Improve your Health',
-          btnText: 'Low carb',
+          title: "Mejore su salud",
+          btnText: "Bajo en carbohidratos",
           description:
-            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eligendi voluptatum maiores vel illum nesciunt unde nisi cumque laboriosam est earum sequi itaque minima voluptate a expedita possimus doloremque optio alias quia, inventore tempore.',
-          image: 'e9f7fa5b-22d5-4a79-a72b-a0243a7b3a9c.jpg',
+            "Alimentos con bajo contenido de carbohidratos, ideales para dietas de control de carbos y mejora de la salud.",
+          image: "e9f7fa5b-22d5-4a79-a72b-a0243a7b3a9c.jpg",
         },
         {
-          title: 'Best tastes suitable for diabetics',
-          btnText: 'Suitable for diabetics',
+          title: "Los mejores sabores para diabéticos",
+          btnText: "Apto para diabéticos",
           description:
-            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eligendi voluptatum maiores vel illum nesciunt unde nisi cumque laboriosam est earum sequi itaque minima voluptate a expedita possimus doloremque optio alias quia, inventore rerum. Porro aliquam ullam praesentium, inventore hic commodi. Iure dolorum, quis numquam quasi iste enim fuga tempore.',
-          image: '7e470e52-dad9-4bfb-8ca7-9abef44bbf3d.jpg',
+            "Alimentos seguros y saludables para personas con diabetes, sin azúcares añadidos y con control de carbohidratos.",
+          image: "7e470e52-dad9-4bfb-8ca7-9abef44bbf3d.jpg",
         },
         {
-          title: 'Tastes that every celiac can enjoy',
-          btnText: 'Suitable for celiacs (Gluteen free)',
+          title: "Sabores que todo celíaco puede disfrutar",
+          btnText: "Apto para celíacos (sin gluten)",
           description:
-            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eligendi voluptatum maiores vel illum nesciunt unde nisi cumque laboriosam est earum sequi doloremque optio alias quia, inventore rerum. Porro aliquam ullam praesentium, inventore hic commodi. Iure dolorum, quis numquam quasi iste enim fuga tempore.',
-          image: '11803668-f4f3-47a2-882c-359ff528a0a6.jpg',
+            "Alimentos sin gluten para personas con intolerancia al gluten, sin compromiso en sabor y calidad.",
+          image: "11803668-f4f3-47a2-882c-359ff528a0a6.jpg",
         },
         {
-          title: 'Tastes that every celiac can enjoy',
-          btnText: 'No sugar added',
+          title: "Sabores que todo celíaco puede disfrutar",
+          btnText: "Sin azúcar añadido",
           description:
-            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eligendi voluptatum maiores vel illum nesciunt unde nisi cumque laboriosam est earum sequi itaque minima voluptate a Iure dolorum, quis numquam quasi iste enim fuga tempore.',
-          image: '7b020fd5-3dbc-4fa5-88f9-07b730805109.jpg',
+            "Alimentos sin adición de azúcares artificiales, ideales para dietas de control de azúcar y mejora de la salud.",
+          image: "7b020fd5-3dbc-4fa5-88f9-07b730805109.jpg",
         },
       ],
 
       workTime: [
         {
-          day: 'Monday',
-          hours: '10:30 am - 9:00 pm',
-          startTime: '10:30',
-          endTime: '21:00',
+          day: "Lunes",
+          hours: "10:30 am - 9:00 pm",
+          startTime: "10:30",
+          endTime: "21:00",
         },
         {
-          day: 'Tuesday',
-          hours: '10:30 am - 9:00 pm',
-          startTime: '10:30',
-          endTime: '21:00',
+          day: "Martes",
+          hours: "10:30 am - 9:00 pm",
+          startTime: "10:30",
+          endTime: "21:00",
         },
         {
-          day: 'Wednesday',
-          hours: '10:30 am - 9:00 pm',
-          startTime: '10:30',
-          endTime: '21:00',
+          day: "Miércoles",
+          hours: "10:30 am - 9:00 pm",
+          startTime: "10:30",
+          endTime: "21:00",
         },
         {
-          day: 'Thursday',
-          hours: '10:30 am - 9:00 pm',
-          startTime: '10:30',
-          endTime: '21:00',
+          day: "Jueves",
+          hours: "10:30 am - 9:00 pm",
+          startTime: "10:30",
+          endTime: "21:00",
         },
         {
-          day: 'Friday',
-          hours: '10:30 am - 9:00 pm',
-          startTime: '10:30',
-          endTime: '21:00',
+          day: "Viernes",
+          hours: "10:30 am - 9:00 pm",
+          startTime: "10:30",
+          endTime: "21:00",
         },
         {
-          day: 'Saturday',
-          hours: '12:30 pm a 9:00 pm',
-          startTime: '12:30',
-          endTime: '21:00',
+          day: "Sábado",
+          hours: "12:30 pm - 9:00 pm",
+          startTime: "12:30",
+          endTime: "21:00",
         },
         {
-          day: 'Sunday',
-          hours: '12:30 pm a 8:00 pm',
-          startTime: '12:30',
-          endTime: '20:00',
+          day: "Domingo",
+          hours: "12:30 pm - 8:00 pm",
+          startTime: "12:30",
+          endTime: "20:00",
         },
       ],
-    }
+    };
   },
 
   computed: {
     today() {
-      return new Date().getDay()
+      return new Date().getDay();
     },
     checkTime() {
-      const date = new Date()
-      const hours = date.getHours()
+      const date = new Date();
+      const hours = date.getHours();
       // const mins = date.getMinutes()
 
-      const currentWorkTime = this.workTime[this.today - 1]
-      const start = currentWorkTime.startTime.split(':')
-      const end = currentWorkTime.endTime.split(':')
+      const currentWorkTime = this.workTime[this.today - 1];
+      const start = currentWorkTime.startTime.split(":");
+      const end = currentWorkTime.endTime.split(":");
 
-      return !!(hours >= start[0] && hours < end[0])
+      return !!(hours >= start[0] && hours < end[0]);
     },
   },
 
   methods: {
     submitForm() {
-      this.sendingForm = true
-      fetch('/api/contact', {
-        method: 'POST',
+      this.sendingForm = true;
+      fetch("/api/contact", {
+        method: "POST",
         body: JSON.stringify(this.formData),
-        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        headers: { "Content-type": "application/json; charset=UTF-8" },
       })
         .then((response) => response)
         .then((res) => {
-          this.sendingForm = false
+          this.sendingForm = false;
           this.formMessage =
-            'Message sent. We will contact you as soon as possible.'
+            "Message sent. We will contact you as soon as possible.";
           this.formData = {
             name: null,
             email: null,
             message: null,
-          }
+          };
         })
         // eslint-disable-next-line no-console
-        .catch((err) => console.log(err, 'error'))
+        .catch((err) => console.log(err, "error"));
     },
   },
-}
+};
 </script>
-

@@ -2,8 +2,8 @@
   <div class="mt-[120px]">
     <section class="py-16 bg-white">
       <div class="container">
-        <p v-if="$fetchState.pending">Fetching products...</p>
-        <p v-else-if="$fetchState.error">An error occurred :(</p>
+        <p v-if="$fetchState.pending">Buscando productos...</p>
+        <p v-else-if="$fetchState.error">Se ha producido un error :(</p>
         <div v-else class="lg:grid lg:grid-cols-2 lg:gap-x-8">
           <!-- Product details -->
           <div class="lg:max-w-lg lg:self-end">
@@ -51,12 +51,12 @@
 
             <section aria-labelledby="information-heading" class="mt-4">
               <h2 id="information-heading" class="sr-only">
-                Product information
+                Información del producto
               </h2>
 
               <div class="flex items-center">
                 <p class="text-lg text-gray-900 sm:text-xl">
-                  S/. {{ product?.price.toFixed(2) }}
+                  {{ currency }} {{ product?.price.toFixed(2) }}
                 </p>
                 <p
                   class="pl-4 ml-4 text-base capitalize border-l border-gray-300 text-tertiary"
@@ -201,14 +201,14 @@
             class="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start"
           >
             <section aria-labelledby="options-heading">
-              <h2 id="options-heading" class="sr-only">Product options</h2>
+              <h2 id="options-heading" class="sr-only">Opciones de productos</h2>
 
               <form>
                 <div class="sm:flex sm:justify-between">
                   <!-- Size selector -->
                   <fieldset>
                     <legend class="block text-sm font-medium text-black">
-                      Quantity
+                      Cantidad
                     </legend>
                     <div class="grid grid-cols-1 gap-4 mt-1 sm:grid-cols-2">
                       <!-- Active: "ring-2 ring-indigo-500" -->
@@ -220,7 +220,9 @@
                           id="quantity"
                           value="1"
                           type="number"
-                          class="w-auto py-1.5 text-center bg-white border-gray-300 rounded-md shadow-sm appearance-none lock placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-lg"
+                          min="1"
+                          v-model="qty"
+                          class="w-auto py-1.5 px-3 focus:ring-2 ring-primary outline-none text-center bg-white border-gray-300 rounded-md shadow-sm appearance-none lock placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-lg"
                         />
                         <!-- <button class="btn secondary">+</button> -->
                       </div>
@@ -231,15 +233,15 @@
                   <button
                     type="submit"
                     class="btn primary"
-                    @click.prevent="addToCart(product)"
+                    @click.prevent="addToCart({product, qty}); qty = 1"
                   >
-                    Add to bag
+                    Agregar al carrito
                   </button>
                 </div>
 
                 <div class="mt-6 text-center">
                   <nuxt-link
-                    to="/shop"
+                    to="/tienda"
                     class="inline-flex text-base font-medium group"
                   >
                     <!-- Heroicon name: outline/shield-check -->
@@ -259,7 +261,7 @@
                       />
                     </svg>
                     <span class="text-gray-500 hover:text-gray-700"
-                      >Keep shopping</span
+                      >Continuar comprando</span
                     >
                   </nuxt-link>
                 </div>
@@ -275,7 +277,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'SingleProductPage',
@@ -283,6 +285,7 @@ export default {
   data() {
     return {
       product: null,
+      qty: 1
     }
   },
 
@@ -301,6 +304,12 @@ export default {
 
     this.product = products?.data?.[0]
     // TODO: on 404, redirects
+  },
+
+  computed: {
+    ...mapGetters({
+      currency: 'getCurrency'
+    })
   },
 
   methods: {

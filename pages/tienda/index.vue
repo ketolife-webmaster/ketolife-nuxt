@@ -1,18 +1,18 @@
 <template>
   <div class="">
     <SectionInnerPageTitle
-      title="Our Shop"
+      title="Nuestra tienda"
       text="Lorem ipsum dolor sit amet, ea has tollit nominavi, ei ius choro affert graeco. Vim nu epicuri definiebas et, eam in facer errem nominavi."
       background-image="AdobeStock_413772753.webp"
     />
 
     <section class="relative py-16">
       <div class="container">
-        <SectionShopFilter />
+        <!-- <SectionShopFilter /> -->
 
         <section
           aria-labelledby="product-heading"
-          class="mt-16 lg:col-span-2 xl:col-span-3"
+          class="lg:col-span-2 xl:col-span-3"
         >
           <h2 id="product-heading" class="sr-only">Products</h2>
 
@@ -30,7 +30,7 @@
           </div>
         </section>
 
-        <SectionShopPagination />
+        <!-- <SectionShopPagination /> -->
       </div>
     </section>
   </div>
