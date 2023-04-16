@@ -105,6 +105,7 @@ export default {
     { src: '~/plugins/animateOnScroll.js', mode: 'client' },
     { src: '~/plugins/vue-carousel.js', mode: 'client' },
     '~/plugins/api-calls',
+    '~/plugins/tools',
   ],
 
   loading: {

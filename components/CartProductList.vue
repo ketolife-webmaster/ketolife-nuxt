@@ -1,10 +1,10 @@
 <template>
-  <li>
+  <li v-if="product">
     <div class="flex py-6 sm:py-10">
       <div class="flex-shrink-0">
         <img
-          src="https://bf9mpgu8.directus.app/assets/65c69a99-9ea0-4bc8-a0ab-8a91677fff44"
-          alt=""
+          :src="$tools.image(product?.image)"
+          alt="Imágen de portada del carrito"
           class="object-cover object-center w-24 h-24 shadow rounded-xl sm:h-32 sm:w-32"
         />
       </div>
@@ -15,37 +15,35 @@
             <div class="flex justify-between">
               <h3 class="text-lg">
                 <nuxt-link
-                  to="/shop/testproduct"
+                  :to="`/tienda/${product?.slug}`"
                   class="font-medium text-primary hover:underline"
-                  >Cheesecake de Arandanos</nuxt-link
+                  >{{ product?.name }}</nuxt-link
                 >
               </h3>
             </div>
             <div class="flex mt-1 text-sm">
-              <p class="text-tertiary">Complete</p>
+              <p class="text-tertiary">{{ product?.porcion }}</p>
             </div>
-            <p class="mt-1 text-sm font-medium text-gray-500">S./ 168.00</p>
+            <p class="mt-1 text-sm font-medium text-gray-500">
+              {{ currency }} {{ product?.price }}
+            </p>
           </div>
 
           <div class="mt-4 sm:mt-0 sm:pr-9">
             <label for="quantity" class="sr-only">Quantity</label>
-            <select
+            <input
               id="quantity"
+              type="number"
+              min="1"
               name="quantity"
-              class="max-w-full py-1.5 bg-white border-gray-300 rounded-md shadow-sm lock placeholder-tertiary text-paragraph focus:border-primary focus:ring-primary sm:text-sm"
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-            </select>
+              :value="product?.qty"
+              @change="updateQty({ index, qty: $event.target.value })"
+              class="w-20 text-center px-3 py-1.5 bg-white border-gray-300 rounded-md shadow-sm lock placeholder-tertiary text-paragraph focus:border-primary outline-none focus:ring-2 focus:ring-primary sm:text-sm"
+            />
 
             <div class="absolute top-0 right-0">
               <button
+                @click.prevent="removeFromCart(index)"
                 type="button"
                 class="flex-shrink-0 p-1 text-gray-400 rounded-full hover:text-tertiary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-0 focus:text-primary"
               >
@@ -72,7 +70,33 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
-  name: 'CartProductListComponent',
-}
+  name: "CartProductListComponent",
+
+  props: {
+    product: {
+      type: Object,
+      required: true
+    },
+    index: {
+      type: Number,
+      required: true
+    }
+  },
+
+  computed: {
+    ...mapGetters({
+      currency: "getCurrency",
+    }),
+  },
+
+  methods: {
+    ...mapActions({
+      updateQty: "cart/updateProductQuantity",
+      removeFromCart: "cart/removeFromCart"
+    }),
+  },
+};
 </script>

@@ -10,21 +10,26 @@
         <form
           class="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16"
         >
-          <section aria-labelledby="cart-heading" class="lg:col-span-7">
+          <section aria-labelledby="cart-heading" class="lg:col-span-6">
             <h2 id="cart-heading" class="sr-only">
-              Items in your shopping cart
+              Productos en tu carrito de compras
             </h2>
 
             <ul
               role="list"
               class="border-t border-b border-gray-200 divide-y divide-gray-200"
             >
-              <CartProductList />
+              <CartProductList
+                v-for="(product, index) in cart"
+                :key="index"
+                :product="product"
+                :index="index"
+              />
             </ul>
           </section>
 
           <!-- Order summary -->
-          <SectionCartSummary />
+          <SectionCartSummary class="lg:col-span-6" />
         </form>
         <!-- Related products -->
       </div>
@@ -35,7 +40,15 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: 'CartPage',
-}
+  name: "CartPage",
+
+  computed: {
+    ...mapGetters({
+      cart: "cart/getCart",
+    }),
+  },
+};
 </script>

@@ -189,7 +189,7 @@
           >
             <div class="overflow-hidden rounded- aspect-w-1 aspect-h-1">
               <img
-                :src="`${$config.apiURL}/assets/${product?.image}`"
+                :src="$tools.image(product?.image)"
                 :alt="product?.name"
                 class="object-cover object-center shadow-2xl pointer-events-none rounded-3xl"
               />

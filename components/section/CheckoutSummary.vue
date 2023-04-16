@@ -1,36 +1,38 @@
 <template>
   <section
     aria-labelledby="summary-heading"
-    class="px-4 py-6 mt-16 bg-gray-100 border border-gray-200 shadow-2xl rounded-2xl sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+    class="px-4 py-6 mt-16 bg-gray-100 border border-gray-200 shadow-2xl rounded-2xl sm:p-6 lg:mt-0 lg:p-8"
   >
     <h2 id="summary-heading" class="text-lg font-bold text-black">
-      Order summary
+      Recumen de orden
     </h2>
 
-    <h3 class="sr-only">Items in your cart</h3>
+    <h3 class="sr-only">Productos en tu carrito</h3>
     <ul role="list" class="divide-y divide-gray-200">
-      <utilsCheckoutProductList />
+      <CheckoutProductList
+        v-for="(product, index) in cart"
+        :key="index"
+        :product="product"
+        :index="index"
+      />
       <!-- More products... -->
     </ul>
 
     <dl class="mt-6 space-y-4">
       <div class="flex items-center justify-between">
         <dt class="text-sm text-gray-600">Subtotal</dt>
-        <dd class="text-sm font-medium text-primary">S./ 99.00</dd>
+        <dd class="text-sm font-medium text-primary">{{ currency }} 99.00</dd>
       </div>
       <div
         class="flex items-center justify-between pt-4 border-t border-gray-200"
       >
         <dt class="flex items-center text-sm text-gray-600">
-          <span>Shipping estimate</span>
+          <span>Estimado de envío</span>
           <a
             href="#"
             class="flex-shrink-0 ml-2 text-gray-400 hover:text-primary"
           >
-            <span class="sr-only"
-              >Learn more about how shipping is calculated</span
-            >
-            <!-- Heroicon name: mini/question-mark-circle -->
+            <span class="sr-only">Aprende como se calcula el envío</span>
             <svg
               class="w-5 h-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -46,19 +48,18 @@
             </svg>
           </a>
         </dt>
-        <dd class="text-sm font-medium text-primary">S./ 5.00</dd>
+        <dd class="text-sm font-medium text-primary">{{ currency }} 5.00</dd>
       </div>
       <div
         class="flex items-center justify-between pt-4 border-t border-gray-200"
       >
         <dt class="flex text-sm text-gray-600">
-          <span>Tax estimate</span>
+          <span>Impuesto estimado</span>
           <a
             href="#"
             class="flex-shrink-0 ml-2 text-gray-400 hover:text-primary"
           >
-            <span class="sr-only">Learn more about how tax is calculated</span>
-            <!-- Heroicon name: mini/question-mark-circle -->
+            <span class="sr-only">Aprende como el impuesto es calculado</span>
             <svg
               class="w-5 h-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -74,24 +75,33 @@
             </svg>
           </a>
         </dt>
-        <dd class="text-sm font-medium text-primary">S./ 8.32</dd>
+        <dd class="text-sm font-medium text-primary">{{ currency }} 8.32</dd>
       </div>
       <div
         class="flex items-center justify-between pt-4 border-t border-gray-200"
       >
-        <dt class="text-base font-medium text-black">Order total</dt>
-        <dd class="text-base font-medium text-black">S./ 112.32</dd>
+        <dt class="text-base font-medium text-black">Total de la Orden</dt>
+        <dd class="text-base font-medium text-black">{{ currency }} 112.32</dd>
       </div>
     </dl>
 
     <div class="mt-6">
-      <button type="submit" class="btn primary">Confirm order</button>
+      <button type="submit" class="btn primary">Confirmar orden</button>
     </div>
   </section>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: 'CheckoutSummarySectionCompoenent',
-}
+  name: "CheckoutSummarySectionCompoenent",
+
+  computed: {
+    ...mapGetters({
+      cart: "cart/getCard",
+      currency: "getCurrency",
+    }),
+  },
+};
 </script>

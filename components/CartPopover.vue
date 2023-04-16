@@ -6,8 +6,7 @@
     aria-labelledby="user-menu-button"
     tabindex="-1"
   >
-    <h2 class="sr-only">Shopping Cart</h2>
-    <pre>{{ cart }}</pre>
+    <h2 class="sr-only">Carrito de compras</h2>
     <form class="max-w-2xl px-4 mx-auto">
       <ul role="list" class="divide-y divide-gray-200">
         <li
@@ -37,20 +36,32 @@
             </p>
           </div>
         </li>
-        <li v-else class="flex items-center py-6">
-          <img
-            src="https://bf9mpgu8.directus.app/assets/65c69a99-9ea0-4bc8-a0ab-8a91677fff44"
-            alt=""
-            class="flex-none w-16 h-16 shadow rounded-xl"
-          />
-          <div class="flex-auto ml-4">
-            <h3 class="font-medium text-primary">
-              <a href="#">Cheesecake de Arandanos</a>
-            </h3>
-            <p class="flex items-center justify-between text-xs text-gray-500">
-              <span class="text-tertiary">Complete</span>
-              <span class="">S./ 168.00</span>
-            </p>
+        <li v-else>
+          <div
+            v-for="(product, index) in cart"
+            :key="index"
+            class="flex items-center py-6"
+          >
+            <img
+              :src="$tools.image(product?.image)"
+              alt=""
+              class="flex-none w-16 h-16 shadow rounded-xl"
+            />
+            <div class="flex-auto ml-4">
+              <h3 class="font-medium text-primary">
+                <nuxt-link :to="`/tienda/${product?.slug}`">
+                  {{ product?.name }}
+                </nuxt-link>
+              </h3>
+              <p
+                class="flex items-center justify-between text-xs text-gray-500"
+              >
+                <span class="capitalize text-tertiary"
+                  >Cantidad: <span class="ml-1">{{ product?.qty }}</span></span
+                >
+                <span class="">{{ currency }} {{ product?.price }}</span>
+              </p>
+            </div>
           </div>
         </li>
 
@@ -65,7 +76,7 @@
 
         <p class="mt-3 text-center">
           <nuxt-link
-            to="/cart"
+            to="/carrito"
             class="text-sm font-medium text-primary hover:text-tertiary"
             >Ver bolsa de la compra</nuxt-link
           >
@@ -84,6 +95,7 @@ export default {
   computed: {
     ...mapGetters({
       cart: "cart/getCart",
+      currency: "getCurrency",
     }),
   },
 };

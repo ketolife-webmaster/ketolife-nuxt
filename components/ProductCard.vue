@@ -2,7 +2,7 @@
   <div class="relative group">
     <div class="overflow-hidden transition-all duration-300 ease-out group-hover:bg-primary bg-gray-50 rounded-2xl aspect-w-2 aspect-h-2 group-hover:shadow-sm">
       <img
-        :src="`${$config.apiURL}/assets/${product?.image}`"
+        :src="$tools.image(product?.image)"
         :alt="product?.name"
         class="object-cover object-center"
         loading="lazy"
@@ -16,14 +16,15 @@
             {{ product?.name }}
           </nuxt-link>
         </h3>
-        <p class="whitespace-nowrap group-hover:text-white">S/. {{ product?.price }}</p>
+        <p class="whitespace-nowrap group-hover:text-white">{{ currency }} {{ product?.price }}</p>
       </div>
     </div>
-    <!-- <p class="text-sm capitalize text-tertiary">{{ product?.size }}</p> -->
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: 'ProductCardComponent',
 
@@ -32,6 +33,12 @@ export default {
       type: Object,
       required: true
     }
+  },
+
+  computed: {
+    ...mapGetters({
+      currency: "getCurrency",
+    }),
   },
 }
 </script>

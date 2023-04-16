@@ -6,11 +6,32 @@ export const getters = {
   getCart(state) {
     return state.cart;
   },
+
+  getCartSummary(state) {
+    let summary = {
+      subtotal: 0,
+      shipping: 10,
+      tax: 0,
+      total: 0,
+    };
+
+    state.cart.forEach((product) => {
+      summary.subtotal = summary.subtotal + (product.price * product.qty)
+    });
+
+    // TODO: Shipping from configs
+    // TODO: Tax from configs
+
+    summary.tax = parseFloat(((summary.subtotal + summary.shipping) * 0.05).toFixed(2))
+
+    summary.total = summary.subtotal + summary.shipping + summary.tax
+
+    return summary;
+  },
 };
 
 export const mutations = {
   ADD_TO_CART(state, payload) {
-    // state.cart.push(payload)
     let itemInCartIndex = null;
     const itemInCart = state.cart.filter((p) => {
       if (p.id === payload.id) {
@@ -20,7 +41,6 @@ export const mutations = {
         return true;
       }
     });
-    console.log(itemInCart, itemInCartIndex);
 
     itemInCart.length === 0
       ? state.cart.push(payload)
@@ -28,19 +48,17 @@ export const mutations = {
           parseInt(state.cart[itemInCartIndex].qty) + parseInt(payload.qty));
   },
 
-  REMOVE_FROM_CART(state, index) {
-    this.cart = this.cart.filter((x) => x !== index);
+  REMOVE_FROM_CART(state, indexInCart) {
+    state.cart = state.cart.filter((x, index) => index !== indexInCart);
   },
 
-  // UPDATE_CART (state, payload) {
-  //   this.cart.push(payload)
-  // }
+  UPDATE_PRODUCT_QUANTITY(state, payload) {
+    state.cart[payload.index].qty = payload.qty;
+  },
 };
 
 export const actions = {
   addToCart({ commit }, payload) {
-    // eslint-disable-next-line no-console
-    console.log(payload);
     const { id, slug, name, image, size, price } = payload.product;
     commit("ADD_TO_CART", {
       id,
@@ -54,6 +72,11 @@ export const actions = {
   },
 
   removeFromCart({ commit }, index) {
+    console.log(index);
     commit("REMOVE_FROM_CART", index);
+  },
+
+  updateProductQuantity({ commit }, payload) {
+    commit("UPDATE_PRODUCT_QUANTITY", payload);
   },
 };
